@@ -54,7 +54,10 @@ class Grakn {
       request.headers.set("Accept", "application/graql+json");
       request.write(query);
       HttpClientResponse response = await request.close();
-      String result = await response.transform(LATIN1.decoder).first;
+      String result = "";
+      await for(String part in response.transform(LATIN1.decoder)){
+        result += part;
+      }
       return result;
     } catch (e, s) {
       _log.warning(e);

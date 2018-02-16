@@ -3,7 +3,8 @@ import 'package:grakn/grakn.dart';
 
 main() async {
   Grakn grakn = new Grakn();
-  String rawString = await grakn.execute("match \$x isa thing; get;");
+  String query = "match \$x isa thing; get;";
+  String rawString = await grakn.execute(query);
   List rawList = JSON.decode(rawString);
   print('awesome: $rawList');
 }
