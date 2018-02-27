@@ -34,7 +34,7 @@ class Grakn {
     return "/kb/${this.keyspace}/graql";
   }
 
-  Future<String> execute(String query, [Map params]) async {
+  Future<String> execute(String query, {Map params, bool throwExceptions:false}) async {
     try {
       HttpClient client = new HttpClient();
 
@@ -51,17 +51,18 @@ class Grakn {
           path: this.queryEndpoint,
           queryParameters: finalParams);
       HttpClientRequest request = await client.postUrl(uri);
-      request.headers.set("Accept", "application/graql+json");
+      request.headers.contentType = new ContentType("application", "graql+json", charset: "utf-8");
       request.write(query);
       HttpClientResponse response = await request.close();
       String result = "";
-      await for(String part in response.transform(LATIN1.decoder)){
+      await for(String part in response.transform(UTF8.decoder)){
         result += part;
       }
       return result;
     } catch (e, s) {
       _log.warning(e);
       _log.warning(s);
+      if(throwExceptions) throw e;
       return null;
     }
   }
