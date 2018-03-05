@@ -2,6 +2,8 @@
 
 A Grakn REST API connector for the Grakn hyper-relational graph database.
 
+Tested with Grakn 1.0 and 1.1
+
 ## Usage
 
 A simple usage example:

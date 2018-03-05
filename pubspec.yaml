@@ -1,6 +1,6 @@
 name: grakn
 description: A Grakn REST API connector for the Grakn hyper-relational graph database.
-version: 2.0.0
+version: 2.0.1
 homepage: https://github.com/Tomen/grakn-dart
 author: Tommi Enenkel <tommi.enenkel@gmail.com>
 
