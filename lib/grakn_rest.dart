@@ -1,4 +1,4 @@
-library grakn_base;
+library grakn_rest;
 
 import "dart:async";
 import "dart:io";
@@ -10,7 +10,7 @@ const String DEFAULT_HOST = 'localhost';
 const int DEFAULT_PORT = 4567;
 const String DEFAULT_KEYSPACE = 'grakn';
 
-class Grakn {
+class GraknREST {
   static logging.Logger _log = new logging.Logger("grakn");
 
   String host;
@@ -25,7 +25,7 @@ class Grakn {
     'txType': 'WRITE'
   };
 
-  Grakn(
+  GraknREST(
       {this.host = DEFAULT_HOST,
         this.port = DEFAULT_PORT,
         this.keyspace = DEFAULT_KEYSPACE});

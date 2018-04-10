@@ -1,5 +1,5 @@
 import "dart:convert";
-import 'package:grakn/grakn.dart';
+import 'package:grakn/grakn_rest.dart';
 import 'package:test/test.dart';
 import "package:logging/logging.dart" as logging;
 
@@ -15,11 +15,11 @@ configureLogging(){
 
 void main() {
   group('A group of tests', () {
-    Grakn grakn;
+    GraknREST grakn;
 
     setUp(() {
       configureLogging();
-      grakn = new Grakn(keyspace: 'test');
+      grakn = new GraknREST(keyspace: 'test');
     });
 
     test('Match anything', () async {
