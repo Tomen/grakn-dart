@@ -5,7 +5,6 @@ import "dart:io";
 import "dart:convert";
 import "package:logging/logging.dart" as logging;
 
-
 const String DEFAULT_HOST = 'localhost';
 const int DEFAULT_PORT = 4567;
 const String DEFAULT_KEYSPACE = 'grakn';
@@ -42,7 +41,6 @@ class GraknREST {
       if(params != null){
         finalParams.addAll(params);
       }
-
 
       Uri uri = new Uri(
           scheme: "http",
